@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<TitledPane alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="Eleitor" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.EleitorController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <TabPane prefHeight="577.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab id="EleicoesEleitorTab" closable="false" text="Eleições">
+                     <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="213.0" prefWidth="253.0">
+                           <children>
+                              <TableView id="EleicoesEmAbertoTableView" fx:id="eleicoesEleitorTableView" layoutX="13.0" layoutY="45.0" prefHeight="160.0" prefWidth="775.0">
+                                <columns>
+                                  <TableColumn fx:id="nrEleicoesActivas" prefWidth="262.0" text="Nr">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="idEleicao" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                  <TableColumn fx:id="tipoEleicoesActivas" minWidth="0.0" prefWidth="279.0" text="Tipo">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="_tipo" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                    <TableColumn fx:id="dataEleicoesActivas" prefWidth="231.0" text="Data">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="dataColuna" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                              </TableView>
+                              <TableView id="HistoricoTableView" fx:id="historicoTableView" layoutX="13.0" layoutY="274.0" prefHeight="200.0" prefWidth="775.0">
+                                <columns>
+                                  <TableColumn fx:id="nrHistorico" prefWidth="261.0" text="Nr">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="idEleicao" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                  <TableColumn fx:id="tipoHistorico" prefWidth="294.0" text="Tipo">
+                                      <cellValueFactory>
+                                          <PropertyValueFactory property="_tipo" />
+                                      </cellValueFactory>
+                                  </TableColumn>
+                                    <TableColumn fx:id="dataHistorico" prefWidth="216.0" text="Data">
+                                        <cellValueFactory>
+                                            <PropertyValueFactory property="dataColuna" />
+                                        </cellValueFactory>
+                                    </TableColumn>
+                                </columns>
+                              </TableView>
+                              <Label layoutX="14.0" layoutY="14.0" text="Eleições em Aberto" />
+                              <Label layoutX="13.0" layoutY="246.0" prefHeight="22.0" prefWidth="73.0" text="Histórico" />
+                              <Button id="VotarButton" fx:id="votarButton" onAction="#handleVotar" layoutX="644.0" layoutY="221.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" text="Votar" />
+                              <Button fx:id="logoutButton" layoutX="644.0" onAction="#handleLogoutButton" layoutY="496.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" text="Logout" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                <Tab id="PerfilTab" fx:id="perfilTableView" closable="false" text="Perfil">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="800.0">
+                           <children>
+                              <Label layoutX="52.0" layoutY="55.0" text="Nome" />
+                              <Label layoutX="52.0" layoutY="80.0" text="Data de Nascimento" />
+                              <Label layoutX="52.0" layoutY="105.0" text="Nacionalidade" />
+                              <Label layoutX="52.0" layoutY="130.0" text="Concelho" />
+                              <Label layoutX="52.0" layoutY="156.0" text="Distrito" />
+                              <Label layoutX="52.0" layoutY="182.0" text="Local de Voto" />
+                              <Label id="nomeLabel" fx:id="nomeLabel" layoutX="372.0" layoutY="55.0" prefHeight="17.0" prefWidth="400.0" text="Label" />
+                              <Label id="datebirthLabel" fx:id="datebirthLabel" layoutX="372.0" layoutY="80.0" prefHeight="17.0" prefWidth="400.0" text="Label" />
+                              <Label id="nacionalidadeLabel" fx:id="nacionalidadeLabel" layoutX="372.0" layoutY="105.0" prefHeight="17.0" prefWidth="400.0" text="Label" />
+                              <Label id="concelhoLabel" fx:id="concelhoLabel" layoutX="372.0" layoutY="130.0" prefHeight="17.0" prefWidth="400.0" text="Label" />
+                              <Label id="distritoLabel" fx:id="distritoLabel" layoutX="372.0" layoutY="156.0" prefHeight="17.0" prefWidth="400.0" text="Label" />
+                              <Label id="localvotoLabel" fx:id="localvotoLabel" layoutX="372.0" layoutY="182.0" prefHeight="17.0" prefWidth="400.0" text="Label" />
+                              <Button id="changepasswordButton" fx:id="changepasswordButton" layoutX="50.0" layoutY="249.0" mnemonicParsing="false" onAction="#handleChangePasswordButton" text="Alterar Password" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children></AnchorPane>
+  </content>
+</TitledPane>

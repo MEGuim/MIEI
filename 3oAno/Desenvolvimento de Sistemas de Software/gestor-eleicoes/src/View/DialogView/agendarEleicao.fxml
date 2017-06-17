@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DialogController.AgendarController">
+   <children>
+      <ChoiceBox fx:id="tipoBox" prefWidth="189.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0" />
+      <DatePicker fx:id="dataPicker" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="100.0" />
+      <Button fx:id="newListButton" mnemonicParsing="false" onAction="#handleNewList" prefWidth="110.0" text="Adicionar Lista" AnchorPane.leftAnchor="275.0" AnchorPane.topAnchor="50.0" />
+      <Button fx:id="delListButton" mnemonicParsing="false" onAction="#handleDelList" prefWidth="110.0" text="Remover Lista" AnchorPane.leftAnchor="275.0" AnchorPane.topAnchor="100.0" />
+      <Button fx:id="okButton" mnemonicParsing="false" onAction="#handleOKAction" prefWidth="75.0" text="OK" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="550.0" />
+      <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelAction" prefWidth="75.0" text="Cancelar" AnchorPane.leftAnchor="225.0" AnchorPane.topAnchor="550.0" />
+      <Label text="Tipo" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="55.0" />
+      <Label text="Data" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="105.0" />
+      <Separator prefWidth="380.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
+      <ListView fx:id="listView" prefHeight="350.0" prefWidth="360.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="175.0" />
+   </children>
+</AnchorPane>

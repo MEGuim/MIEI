@@ -1,0 +1,119 @@
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\Mobile APP.exe.config
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\Mobile APP.exe
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\Mobile APP.pdb
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.csprojResolveAssemblyReference.cache
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\MainWindow.baml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\MainWindow.g.cs
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\App.g.cs
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP_MarkupCompile.cache
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.g.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Navegacao.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Properties.Resources.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.csproj.GenerateResource.Cache
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.exe
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.pdb
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.Core.dll
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.Core.xml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.WindowsForms.xml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.dll
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.pdfa.dll
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.xtra.dll
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.xml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Mosta_tarefas.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Notepad.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Mostra_PI.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\Mobile APP.exe.config
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.exe
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.pdb
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.csprojResolveAssemblyReference.cache
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\MainWindow.baml
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\MainWindow.g.cs
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\App.g.cs
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP_MarkupCompile.cache
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.g.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Foto.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Mostra_PI.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Mosta_tarefas.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Navegacao.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Notepad.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Properties.Resources.resources
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.csproj.GenerateResource.Cache
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\Mobile APP.exe
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\Mobile APP.pdb
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\AForge.Controls.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\AForge.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\AForge.Imaging.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\AForge.Math.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\AForge.Video.DirectShow.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\AForge.Video.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.Core.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.WindowsForms.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.pdfa.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.xtra.dll
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.Core.xml
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.WindowsForms.xml
+C:\Users\migue\Documents\GitHub\LI4-MobileAPP-master\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.xml
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\Mobile APP.exe.config
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.exe
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.pdb
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.csprojResolveAssemblyReference.cache
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\GravarVoz.baml
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\MainWindow.baml
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\GravarVoz.g.cs
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\MainWindow.g.cs
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\App.g.cs
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP_MarkupCompile.cache
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.g.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Foto.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Mostra_PI.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Mosta_tarefas.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Navegacao.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Notepad.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile_APP.Properties.Resources.resources
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\obj\x64\Debug\Mobile APP.csproj.GenerateResource.Cache
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\Mobile APP.exe
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\Mobile APP.pdb
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.Core.dll
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.dll
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.pdfa.dll
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.xtra.dll
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\SpeechClient.dll
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.Core.xml
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\GMap.NET.WindowsForms.xml
+C:\Users\Miguel\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\Mobile APP\bin\x64\Debug\itextsharp.xml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\SpeechClient.dll
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\GravarVoz.baml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\GravarVoz.g.cs
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Foto.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\Mobile APP.exe.config
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.exe
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.pdb
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\Mobile APP.exe
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\Mobile APP.pdb
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.Core.dll
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.WindowsForms.dll
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.dll
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.pdfa.dll
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.xtra.dll
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\SpeechClient.dll
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.Core.xml
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\GMap.NET.WindowsForms.xml
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\bin\x64\Debug\itextsharp.xml
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.csprojResolveAssemblyReference.cache
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\GravarVoz.baml
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\MainWindow.baml
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\GravarVoz.g.cs
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\MainWindow.g.cs
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\App.g.cs
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP_MarkupCompile.cache
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.g.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Foto.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Mostra_PI.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Mosta_tarefas.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Navegacao.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Notepad.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile_APP.Properties.Resources.resources
+C:\Users\migue\Documents\LI4-MobileAPP\Mobile APP\Mobile APP\mobile app\obj\x64\Debug\Mobile APP.csproj.GenerateResource.Cache

@@ -1,0 +1,16 @@
+X: 1
+M: 4/4
+K: C
+Q: 1/4=100
+L: 1/4
+%%MIDI chordprog 58			% instrumento: tuba
+%%MIDI gchord	fzcc			% modo de acompanhamento
+"Em"z2 "Dm"z1|
+"F"z "G"z "A"z "C"z|
+"Em"z2 "C"z|
+"Em"z2 "D"z "Em"z|
+%%MIDI drum 75			% instrumento de percursão: claves
+"Em"z4|
+"D"z4|
+"Em"z4|
+"Em"z2 "D"z "Em"z|

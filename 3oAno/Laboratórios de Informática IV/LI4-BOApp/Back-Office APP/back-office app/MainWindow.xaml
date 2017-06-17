@@ -1,0 +1,225 @@
+﻿<Window x:Class="WpfApplication1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BackOficce-APP" Height="600.746" Width="898.134" ResizeMode="NoResize">
+    <TabControl x:Name="tab1" HorizontalAlignment="Left" Height="564" Margin="-3,1,0,0" VerticalAlignment="Top" Width="888" SelectionChanged="TabControl_SelectionChanged">
+        <TabItem x:Name="login1" Header="LOGIN" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
+            <Grid x:Name="LOGIN" Margin="0,0,-10,-10">
+                <Grid.Background>
+                    <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Rectangle x:Name="REC1" HorizontalAlignment="Left" Height="302" Margin="222,112,0,0" Stroke="Black" VerticalAlignment="Top" Width="430" Fill="#FFD0D6C2"/>
+                <Button x:Name="login" Content="LOGIN" HorizontalAlignment="Left" Margin="398,348,0,0" VerticalAlignment="Top" Width="74" Click="login_Click" Height="36"/>
+                <Label Content="Identificador" HorizontalAlignment="Left" Margin="302,199,0,0" VerticalAlignment="Top" Height="26" Width="78"/>
+                <Label Content="Password" HorizontalAlignment="Left" Margin="318,262,0,0" VerticalAlignment="Top" Height="26" Width="60"/>
+                <TextBox x:Name="ident" HorizontalAlignment="Left" Height="25" Margin="394,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" FontSize="14" TextChanged="TextBox_TextChanged"/>
+                <PasswordBox x:Name="pass" HorizontalAlignment="Left" Margin="394,262,0,0" VerticalAlignment="Top" Width="148" Height="25" FontSize="14"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="INSERIR" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="89*"/>
+                    <ColumnDefinition Width="205*"/>
+                </Grid.ColumnDefinitions>
+                <TabControl x:Name="tab_inserir" HorizontalAlignment="Left" Height="539" Margin="-5,-3,0,0" VerticalAlignment="Top" Width="887" Grid.ColumnSpan="2">
+                    <TabControl.Background>
+                        <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                    </TabControl.Background>
+                    <TabItem Header="MISSÃO">
+                        <Grid x:Name="INSERIRMISSAO" Margin="0,0,0,-11">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="96*"/>
+                                <ColumnDefinition Width="785*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Rectangle x:Name="REC2" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="400" Margin="102,77,0,0" Stroke="Black" VerticalAlignment="Top" Width="479" Grid.Column="1"/>
+                            <Label Content="Identificador" HorizontalAlignment="Left" Margin="196,130,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label Content="Tarefas" HorizontalAlignment="Left" Margin="141,232,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <TextBox x:Name="idmissao" HorizontalAlignment="Left" Height="23" Margin="299,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165" Grid.Column="1"/>
+                            <Button x:Name="okMi" Content="Ok" HorizontalAlignment="Left" Margin="311,184,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                            <Separator HorizontalAlignment="Left" Height="5" Margin="103,216,0,0" VerticalAlignment="Top" Width="476" Grid.Column="1"/>
+                            <Button Content="Confirmar" HorizontalAlignment="Left" Margin="250,432,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                            <Button Content="Cancelar" HorizontalAlignment="Left" Margin="362,432,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                            <DataGrid x:Name="tabelaTarefas" HorizontalAlignment="Left" Height="120" Margin="147,265,0,0" VerticalAlignment="Top" Width="389" Grid.Column="1"/>
+                            <Button x:Name="logout1" Content="LogOut" HorizontalAlignment="Left" Margin="709,0,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="OPERACIONAL">
+                        <Grid x:Name="INSERIROPERACIONAL">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="REC3" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="350" Margin="168,76,0,0" Stroke="Black" VerticalAlignment="Top" Width="542"/>
+                            <Label Content="Identificador" HorizontalAlignment="Left" Margin="273,145,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.577"/>
+                            <Label Content="Nome" HorizontalAlignment="Left" Margin="309,180,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Data de nascimento" HorizontalAlignment="Left" Margin="235,212,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Data de ingresso" HorizontalAlignment="Left" Margin="251,243,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Posto" HorizontalAlignment="Left" Margin="311,276,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="idU" HorizontalAlignment="Left" Height="23" Margin="377,148,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                            <TextBox x:Name="nomeU" HorizontalAlignment="Left" Height="23" Margin="377,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+                            <Button x:Name="confirUser" Content="Confirmar" HorizontalAlignment="Left" Margin="325,374,0,0" VerticalAlignment="Top" Width="76" Click="confirUser_Click"/>
+                            <Button x:Name="cancelaU" Content="Cancelar" HorizontalAlignment="Left" Margin="469,374,0,0" VerticalAlignment="Top" Width="74" Click="cancelaU_Click"/>
+                            <ComboBox x:Name="postos" HorizontalAlignment="Left" Margin="377,279,0,0" VerticalAlignment="Top" Width="176"/>
+                            <DatePicker x:Name="dataN" HorizontalAlignment="Left" Margin="377,214,0,0" VerticalAlignment="Top" Width="178"/>
+                            <DatePicker x:Name="dataI" HorizontalAlignment="Left" Margin="377,246,0,0" VerticalAlignment="Top" Width="178"/>
+                            <Button x:Name="logout2" Content="LogOut" HorizontalAlignment="Left" Margin="807,0,-2,0" VerticalAlignment="Top" Width="76"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="INSERIRTAREFA" Header="TAREFA" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
+                        <Grid Margin="0,0,1,-1">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Rectangle x:Name="REC4" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="278" Margin="206,98,0,0" Stroke="Black" VerticalAlignment="Top" Width="460"/>
+                            <Label Content="Identificador" HorizontalAlignment="Left" Margin="298,143,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Descrição" HorizontalAlignment="Left" Margin="314,194,0,0" VerticalAlignment="Top"/>
+                            <Button x:Name="confirma" Content="Confirmar" HorizontalAlignment="Left" Margin="341,320,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click"/>
+                            <Button x:Name="cancela" Content="Cancelar" HorizontalAlignment="Left" Margin="471,320,0,0" VerticalAlignment="Top" Width="75" Click="cancela_Click"/>
+                            <TextBox x:Name="id" HorizontalAlignment="Left" Height="23" Margin="386,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+                            <TextBox x:Name="tarefa" HorizontalAlignment="Left" Height="81" Margin="386,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164"/>
+                            <Button x:Name="logout3" Content="LogOut" HorizontalAlignment="Left" Margin="804,0,0,0" VerticalAlignment="Top" Width="76"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="PONTO INTERESSE" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="114" Margin="-3,0,0,0">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="169*"/>
+                                <ColumnDefinition Width="712*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="REC5" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="378" Margin="13,93,0,0" Stroke="Black" VerticalAlignment="Top" Width="517" Grid.Column="1"/>
+                            <Label Content="Identificador" HorizontalAlignment="Left" Margin="108,133,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label Content="Latitude" HorizontalAlignment="Left" Margin="132,164,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label Content="Longitude" HorizontalAlignment="Left" Margin="121,196,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label Content="FIcheiro Áudio" HorizontalAlignment="Left" Margin="99,260,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label Content="Texto" HorizontalAlignment="Left" Margin="146,291,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Label Content="Imagem" HorizontalAlignment="Left" Margin="132,228,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                            <Button x:Name="confirmaPI" Content="Confirmar" HorizontalAlignment="Left" Margin="162,424,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                            <Button x:Name="cancelaPI" Content="Cancelar" HorizontalAlignment="Left" Margin="302,423,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
+                            <TextBox x:Name="idPI" HorizontalAlignment="Left" Height="23" Margin="204,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="1"/>
+                            <TextBox x:Name="laPI" HorizontalAlignment="Left" Height="23" Margin="204,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="1"/>
+                            <TextBox x:Name="loPI" HorizontalAlignment="Left" Height="23" Margin="204,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Grid.Column="1"/>
+                            <TextBox x:Name="txtPI" Grid.Column="1" HorizontalAlignment="Left" Height="87" Margin="206,294,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+                            <Label x:Name="l1PI" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="206,229,0,0" VerticalAlignment="Top" Width="164"/>
+                            <Label x:Name="L2PI" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="206,260,0,0" VerticalAlignment="Top" Width="164"/>
+                            <Button x:Name="sImagem" Content="Selecionar" Grid.Column="1" HorizontalAlignment="Left" Margin="389,234,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="sAudio" Content="Selecionar" Grid.Column="1" HorizontalAlignment="Left" Margin="389,264,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="logout4" Content="LogOut" HorizontalAlignment="Left" Margin="636,0,0,0" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+                <Rectangle Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="100" Margin="185,-184,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="EDIÇÃO" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="55">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TabControl x:Name="tab_edicao" HorizontalAlignment="Left" Height="545" Margin="-3,0,0,-9" VerticalAlignment="Top" Width="885">
+                    <TabItem Header="MISSÕES">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="REC6" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="421" Margin="108,49,0,0" Stroke="Black" VerticalAlignment="Top" Width="666"/>
+                            <DataGrid HorizontalAlignment="Left" Height="319" Margin="153,123,0,0" VerticalAlignment="Top" Width="461"/>
+                            <Button x:Name="mRemover" Content="Remover" HorizontalAlignment="Left" Margin="647,189,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="mEditar" Content="Editar" HorizontalAlignment="Left" Margin="647,224,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="mLimpar" Content="Limpar" HorizontalAlignment="Left" Margin="647,261,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="logout5" Content="LogOut" HorizontalAlignment="Left" Margin="803,0,0,0" VerticalAlignment="Top" Width="76"/>
+                            <Button x:Name="vDadosM" Content="Ver dados" HorizontalAlignment="Left" Margin="647,155,0,0" VerticalAlignment="Top" Width="75"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="OPERACIONAIS">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle x:Name="REC8" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="401" Margin="111,41,0,0" Stroke="Black" VerticalAlignment="Top" Width="648"/>
+                            <DataGrid HorizontalAlignment="Left" Height="269" Margin="137,95,0,0" VerticalAlignment="Top" Width="462"/>
+                            <Button Content="Ver dados" HorizontalAlignment="Left" Margin="639,139,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Remover" HorizontalAlignment="Left" Margin="639,173,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Editar" HorizontalAlignment="Left" Margin="639,208,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Limpar" HorizontalAlignment="Left" Margin="639,243,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="logout6" Content="LogOut" HorizontalAlignment="Left" Margin="803,0,0,0" VerticalAlignment="Top" Width="76"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="TAREFAS" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="62" Margin="0">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Rectangle Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="411" Margin="144,60,0,0" Stroke="Black" VerticalAlignment="Top" Width="588"/>
+                            <DataGrid HorizontalAlignment="Left" Height="270" Margin="168,102,0,0" VerticalAlignment="Top" Width="439"/>
+                            <Button Content="Ver dados" HorizontalAlignment="Left" Margin="629,151,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Remover" HorizontalAlignment="Left" Margin="629,183,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Editar" HorizontalAlignment="Left" Margin="629,215,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Limpar" HorizontalAlignment="Left" Margin="629,248,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="logout7" Content="LogOut" HorizontalAlignment="Left" Margin="803,0,0,0" VerticalAlignment="Top" Width="76"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="PONTOS INTERESSE" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="120" Margin="0,0,-64,0">
+                        <Grid>
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Rectangle x:Name="REC9" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="418" Margin="94,50,0,0" Stroke="Black" VerticalAlignment="Top" Width="691"/>
+                            <DataGrid HorizontalAlignment="Left" Height="329" Margin="116,87,0,0" VerticalAlignment="Top" Width="546"/>
+                            <Button Content="Ver dados" HorizontalAlignment="Left" Margin="684,128,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Remover" HorizontalAlignment="Left" Margin="684,160,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Editar" HorizontalAlignment="Left" Margin="684,192,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button Content="Limpar" HorizontalAlignment="Left" Margin="684,225,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Button x:Name="logout8" Content="LogOut" HorizontalAlignment="Left" Margin="803,0,0,0" VerticalAlignment="Top" Width="76"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </TabItem>
+        <TabItem Header="TRANSFERENCIA" HorizontalAlignment="Left" Height="19" VerticalAlignment="Top" Width="116" Margin="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="85*"/>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="209*"/>
+                </Grid.ColumnDefinitions>
+                <TabControl x:Name="tab_update" HorizontalAlignment="Left" Height="538" Margin="-1,-2,0,0" VerticalAlignment="Top" Width="883" Grid.ColumnSpan="3">
+                    <TabControl.Background>
+                        <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                    </TabControl.Background>
+                    <TabItem Header="CONNECTOR">
+                        <Grid x:Name="TRANSFERECONNETOR" Margin="0,-1,0,1">
+                            <Grid.Background>
+                                <ImageBrush ImageSource="C:\Users\nmore_000\Desktop\Camo-Wallpaper-HD.jpg"/>
+                            </Grid.Background>
+                            <Rectangle x:Name="CONETOR" Fill="#FFD0D6C2" HorizontalAlignment="Left" Height="356" Margin="157,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="564"/>
+                            <Button Content="Enviar" HorizontalAlignment="Left" Margin="393,360,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                            <Button Content="Receber" HorizontalAlignment="Left" Margin="389,190,0,0" VerticalAlignment="Top" Width="75"/>
+                            <Separator HorizontalAlignment="Left" Height="11" Margin="157,254,0,0" VerticalAlignment="Top" Width="562"/>
+                            <Label Content="Receber Dados" HorizontalAlignment="Left" Margin="379,123,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Enviar Dados" HorizontalAlignment="Left" Margin="389,296,0,0" VerticalAlignment="Top"/>
+                            <Button x:Name="logout9" Content="LogOut" HorizontalAlignment="Left" Margin="801,0,0,0" VerticalAlignment="Top" Width="76"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

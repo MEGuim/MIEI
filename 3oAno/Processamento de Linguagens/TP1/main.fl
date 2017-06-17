@@ -1,0 +1,46 @@
+%top{
+#define _GNU_SOURCE
+#include "instrumentos.h"
+#include "funcs.h"
+
+char* filename;
+int tempo;
+
+}
+%x METADATA CHORDS DRUMS NOTES
+
+%%
+													FILE* fp = NULL;
+<INITIAL>X:											{BEGIN METADATA; fp = fopen(filename, "w"); fprintf(fp, "%s", yytext);}
+<METADATA>.|\n										{fprintf(fp, "%s", yytext);}
+<METADATA>M:[\ ]*[0-9]+								{fprintf(fp, "%s", yytext); tempo = atoi(yytext+2);}
+
+<METADATA,NOTES>chords"["[a-zA-Z\(\)\+\-0-9]+		{BEGIN CHORDS; fprintf(fp, "%s", processaChords(yytext+7));}
+<METADATA,NOTES>drums"["[a-zA-Z\(\)\+\-0-9]+		{BEGIN DRUMS; fprintf(fp, "%s", processaDrums(yytext+6));}
+
+<CHORDS,DRUMS>"]["[a-z]+							{fprintf(fp, "%s", processaGChord(yytext+2));}
+<CHORDS,DRUMS>"{"									{BEGIN NOTES;}
+
+<NOTES>[a-zA-Z\ \.]+\|								{fprintf(fp, "%s|\n", processaNotes(yytext, tempo));}
+
+<*><<EOF>>											{fclose(fp); return(0);}
+<*>.|\n												{}
+%%
+
+int yywrap(){
+	return 1;
+}
+
+
+int main(int argc, char** argv)
+{
+	if (argc == 2)
+	{
+		asprintf(&filename,"%s.abc", argv[1]);
+		//filename = "file";
+		yyin = fopen(argv[1], "r");
+		yylex();
+	}
+
+	return 0;
+}

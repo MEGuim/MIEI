@@ -1,0 +1,16 @@
+BEGINCMM
+	VARBEGIN
+		i;
+		j;
+		numeros[10][10];
+	VAREND
+	
+	FUNBEGIN
+		FOR(i = 0) (i < 10) (i++) {
+			FOR (j = 0) (j < 10) (j++) {
+				numeros[i][j]= j + i * 10;
+			}
+		}
+	FUNEND
+
+ENDCMM

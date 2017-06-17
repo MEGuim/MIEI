@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<TabPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DialogController.ListaController">
+   <tabs>
+      <Tab closable="false" text="Adicionar Lista">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0">
+               <children>
+                  <TextField fx:id="nomeLista" layoutX="99.0" layoutY="9.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="17.0" />
+                  <TextField fx:id="nrCandidato" layoutX="113.0" layoutY="471.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="472.0" />
+                  <TextField fx:id="partido" layoutX="113.0" layoutY="505.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="512.0" />
+                  <TextField fx:id="hierarquia" layoutX="113.0" layoutY="543.0" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="552.0" />
+                  <Button fx:id="adicionarCandidatoButton" layoutX="306.0" layoutY="486.0" mnemonicParsing="false" onAction="#handleAdicionarCandidato" text="Adicionar Candidato" AnchorPane.leftAnchor="306.0" AnchorPane.topAnchor="486.0" />
+                  <Button fx:id="removerCandidatoButton" layoutX="306.0" layoutY="529.0" mnemonicParsing="false" onAction="#handleRemoverCandidato" prefHeight="29.0" prefWidth="142.0" text="Remover Candidato" AnchorPane.leftAnchor="306.0" AnchorPane.topAnchor="529.0" />
+                  <Button fx:id="okButton" layoutX="611.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleOkLista" prefWidth="72.0" text="OK" />
+                  <Button fx:id="cancelButton" layoutX="696.0" layoutY="519.0" mnemonicParsing="false" onAction="#handleCancelLista" text="Cancelar" />
+                  <Label layoutX="14.0" layoutY="14.0" text="Nome Lista" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+                  <TableView fx:id="listaCandidatos" layoutX="25.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="75.0">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                     <columns>
+                        <TableColumn prefWidth="122.0" text="Nr Candidato">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="_cartaoCidadao" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="252.0" text="Nome">
+                           <cellValueFactory>
+                              <PropertyValueFactory property="_nome" />
+                           </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn fx:id="partidoColuna" prefWidth="75.0" text="Partido" />
+                        <TableColumn fx:id="hierarquiaColuna" prefWidth="75.0" text="Hierarquia" />
+                     </columns>
+                  </TableView>
+                  <Label layoutX="20.0" layoutY="476.0" text="Cartao Cidadao" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="475.0" />
+                  <Label layoutX="26.0" layoutY="510.0" text="Partido" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="515.0" />
+                  <Label layoutX="26.0" layoutY="548.0" text="Hierarquia" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="555.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab closable="false" text="Lista Candidatos">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ListView fx:id="candidatosListView" layoutX="14.0" layoutY="14.0" prefHeight="560.0" prefWidth="769.0" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="14.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+   </tabs>
+</TabPane>

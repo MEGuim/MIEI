@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.cell.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<TitledPane alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="Administração" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AdminController">
+   <content>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab id="EleicaoTab" closable="false" text="Eleições">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="eleicoesTableView" layoutX="12.5" layoutY="15.0" prefHeight="450.0" prefWidth="775.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="10.5" AnchorPane.topAnchor="15.0">
+                          <columns>
+                              <TableColumn editable="false" prefWidth="68.5" text="Nr.">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="idEleicao" />
+                                </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="91.270751953125" text="Tipo">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="_tipo" />
+                                </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="139.08349609375" text="Data">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="dataColuna" />
+                                </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Modo">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="modo" />
+                                  </cellValueFactory>
+                              </TableColumn>
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button fx:id="scheduleElectionButton" layoutX="14.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleScheduleElection" text="Agendar Eleição" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="14.0" />
+                        <Button fx:id="cancelElectionButton" layoutX="127.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleCancelElection" text="Cancelar Eleição" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="127.0" />
+                        <TextField fx:id="eleicaoFiltro" layoutX="535.0" layoutY="488.0" prefHeight="29.0" prefWidth="150.0" promptText="Número Eleição" AnchorPane.bottomAnchor="28.0" AnchorPane.rightAnchor="113.0" />
+                        <Button layoutX="239.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleMarcarEleicaoActiva" text="Marcar Eleicao Activa" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="239.0" />
+                        <Button layoutX="378.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleFinalizeButton" text="Finalizar Eleição" />
+                        <Button layoutX="724.0" layoutY="490.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab id="EleitorTab" closable="false" text="Eleitores">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="eleitoresTableView" layoutX="12.5" layoutY="15.0" prefHeight="450.0" prefWidth="775.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="10.5" AnchorPane.topAnchor="15.0">
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="Cartao Cidadao">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="_cartaoCidadao" />
+                                  </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn editable="false" prefWidth="100.0" text="Nome">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="_nome" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Numero Eleitor">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="_dadosEleitor" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn text="Data Nascimento">
+                                  <cellValueFactory>
+                                      <PropertyValueFactory property="dataColuna" />
+                                  </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="139.08349609375" text="Concelho">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="_concelho" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                              <TableColumn prefWidth="139.08349609375" text="Distrito">
+                                 <cellValueFactory>
+                                    <PropertyValueFactory property="_distrito" />
+                                 </cellValueFactory>
+                              </TableColumn>
+                           </columns>
+                        </TableView>
+                        <Button layoutX="51.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleRegisterVoter" text="Registar Eleitor" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" />
+                        <Button layoutX="207.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleConsultVoter" text="Consultar Eleitor" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="350.0" />
+                        <Button layoutX="340.0" layoutY="479.0" mnemonicParsing="false" onAction="#handleChangeAddress" text="Alterar Morada" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="200.0" />
+                        <TextField fx:id="filtro" layoutX="412.0" layoutY="478.0" prefHeight="29.0" prefWidth="150.0" promptText="Cartão Cidadão" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="11.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab closable="false" text="Candidatos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="candidatosTableView" layoutX="13.0" layoutY="61.0" prefHeight="442.0" prefWidth="775.0" AnchorPane.leftAnchor="13.0" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="15.0">
+                          <columns>
+                            <TableColumn prefWidth="200" text="Cartao Cidadao">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="_cartaoCidadao" />
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn prefWidth="157.0" text="Nome">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="_nome" />
+                                </cellValueFactory>
+                            </TableColumn>
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="ccCandidato" layoutX="20.0" layoutY="485.0" prefHeight="29.0" prefWidth="200.0" promptText="Introduza Número Cidadão" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="20.0" />
+                        <Button layoutX="201.0" layoutY="478.0" mnemonicParsing="false" onAction="#handleMarcarCandidato" text="Marcar como Candidato" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="250.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </content>
+</TitledPane>

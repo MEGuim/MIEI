@@ -1,0 +1,3 @@
+:- dynamic suspended/2.
+
+

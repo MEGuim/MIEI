@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="Adicionar Lista" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Nome Lista" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0" />
+            <TextField layoutX="99.0" layoutY="9.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="7.0" />
+            <TableView layoutX="25.0" layoutY="106.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0">
+              <columns>
+                <TableColumn prefWidth="105.99999845027924" text="Nr Candidato" />
+                <TableColumn prefWidth="648.9999771118164" text="Nome" />
+                  <TableColumn prefWidth="75.0" text="Partido" />
+                  <TableColumn prefWidth="75.0" text="Tipo Candidato (Hierarquia)" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Button layoutX="410.0" layoutY="345.0" mnemonicParsing="false" text="Adicionar Candidato" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="447.0" />
+            <TextField layoutX="206.0" layoutY="345.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="447.0" />
+            <Label layoutX="26.0" layoutY="346.0" text="Nr. Eleitor/ Cartao Cidadao" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="450.0" />
+            <Button layoutX="420.0" layoutY="355.0" mnemonicParsing="false" text="Remover Candidato" AnchorPane.leftAnchor="564.0" AnchorPane.topAnchor="447.0" />
+            <Label layoutX="21.0" layoutY="498.0" text="Partido" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="482.0" />
+            <TextField layoutX="77.0" layoutY="487.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="479.0" />
+            <Button layoutX="611.0" layoutY="519.0" mnemonicParsing="false" prefWidth="65.0" text="OK" />
+            <Button layoutX="696.0" layoutY="519.0" mnemonicParsing="false" text="Cancelar" />
+            <Label layoutX="119.0" layoutY="528.0" text="Hierarquia" />
+            <TextField layoutX="211.0" layoutY="523.0" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>

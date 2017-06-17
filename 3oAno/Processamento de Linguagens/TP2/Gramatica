@@ -1,0 +1,102 @@
+C-- GRAMATIK
+
+Codigo 	: BEGINCMM  Declaracoes Funcao ENDCMM
+	   	;
+
+Funcao 	: FUNBEGIN  BlocoDeclaracoes Execucoes FUNEND
+	   	|
+	   	;
+
+BlocoDeclaracoes 	: VARBEGIN Declaracoes VAREND
+					;
+
+Declaracoes : Declaracoes Declaracao
+			| Declaracao
+			;
+
+Declaracao 	: variavel ';'							
+			| variavel '[' NUM ']' ';'				
+			| variavel '[' NUM ']' '[' NUM ']' ';'	
+			;
+
+
+Execucoes 	: Execucoes Execucao
+			| Execucao
+			;
+
+Execucao  	: Atribuicao ';'
+		  	| Ciclo
+		  	| If
+		  	| StdInOut ';'
+		  	| ChamaFuncao ';'
+		  	|
+		  	;
+
+Atribuicao  : Var '=' Operacao
+			;
+
+Var 	: variavel 											
+		| variavel 	'[' Operacao ']'						
+		| variavel  '[' Operacao ']' '[' Operacao ']'		
+		;
+
+
+Operacao  	: Termo
+		  	| Operacao '+' Termo				
+		  	| Operacao '-' Termo				
+		  	;
+
+Termo 	: Fator
+	  	| Termo '*' Fator						
+	 	| Termo '/' Fator						
+	 	;
+
+Fator 	: Var 									
+	  	| NUM									
+	  	| '(' Operacao ')'
+	  	| READ '(' ')'							
+	  	;
+
+Ciclo 	: WHILE  '(' BlocoCond ')' '{' Execucoes '}'
+	  	| FOR '(' Atribuicao ')' '(' BlocoCond ')'  '(' Operacao ')' '{' Execucoes '}'
+	  	;
+
+
+If 	: IF '(' BlocoCond ')' '{' Execucoes '}' Else
+   	;
+
+Else :  ELSE '{' Execucoes '}'
+	 |			  			  
+	 ;
+
+
+
+BlocoCond	: BlocoCond OR ExpLogica1			
+			| ExpLogica1
+			;
+
+ExpLogica1	: ExpLogica1 AND ExpLogica2			
+			| ExpLogica2
+			;
+
+ExpLogica2	: NOT '(' BlocoCond ')'		
+			| ExpLogica3
+			;
+
+ExpLogica3 	: OperacaoLogica
+			| '(' BlocoCond ')'
+			;
+
+OperacaoLogica: Operacao '<' Operacao		
+			  | Operacao '=' '<' Operacao	
+			  | Operacao '<' '=' Operacao	
+			  | Operacao '>' Operacao		
+			  | Operacao '>' '=' Operacao	
+			  | Operacao '=' '>' Operacao	
+			  | Operacao '=' '=' Operacao	
+			  | Operacao '!' '=' Operacao	
+			  ;
+
+StdInOut 	: WRITE '(' Operacao ')'				
+		 	| WRITE '(' string ')'					
+		 	;

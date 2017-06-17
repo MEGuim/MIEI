@@ -1,0 +1,45 @@
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.pdb
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.baml
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.g.cs
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\App.g.cs
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\Back-Office APP.csproj.GenerateResource.Cache
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb
+C:\Users\nmore_000\Dropbox\LI4\Interface\WpfApplication1\WpfApplication1\obj\Debug\Back-Office APP.csprojResolveAssemblyReference.cache
+C:\Users\Xavier\Downloads\Back-Office APP\Back-Office APP\back-office app\bin\Debug\WpfApplication1.exe.config
+C:\Users\Xavier\Downloads\Back-Office APP\Back-Office APP\back-office app\obj\Debug\WpfApplication1.exe
+C:\Users\Xavier\Downloads\Back-Office APP\Back-Office APP\back-office app\obj\Debug\WpfApplication1.pdb
+C:\Users\Carolina Rodrigues\Desktop\Xavier\LI4\Back-Office APP\Back-Office APP\back-office app\bin\Debug\WpfApplication1.exe.config
+C:\Users\Carolina Rodrigues\Desktop\Xavier\LI4\Back-Office APP\Back-Office APP\back-office app\obj\Debug\WpfApplication1.exe
+C:\Users\Carolina Rodrigues\Desktop\Xavier\LI4\Back-Office APP\Back-Office APP\back-office app\obj\Debug\WpfApplication1.pdb
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\bin\Debug\WpfApplication1.exe.config
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.exe
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.pdb
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\bin\Debug\WpfApplication1.exe
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\bin\Debug\WpfApplication1.pdb
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\Back-Office APP.csprojResolveAssemblyReference.cache
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\MainWindow.baml
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\MainWindow.g.cs
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\App.g.cs
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.g.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\Carolina Rodrigues\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\Back-Office APP.csproj.GenerateResource.Cache
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\bin\Debug\WpfApplication1.exe.config
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.exe
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.pdb
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\bin\Debug\WpfApplication1.exe
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\bin\Debug\WpfApplication1.pdb
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\Back-Office APP.csprojResolveAssemblyReference.cache
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\MainWindow.baml
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\MainWindow.g.cs
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\App.g.cs
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1_MarkupCompile.cache
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.g.resources
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\WpfApplication1.Properties.Resources.resources
+C:\Users\nmore_000\Documents\GitHub\LI4-BOApp\Back-Office APP\back-office app\obj\Debug\Back-Office APP.csproj.GenerateResource.Cache

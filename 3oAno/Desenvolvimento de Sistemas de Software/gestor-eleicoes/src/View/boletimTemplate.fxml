@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane collapsible="false" prefHeight="417.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.VotarController">
+   <content>
+      <AnchorPane fx:id="pane" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="174.0" layoutY="344.0" onAction="#handleVoto" mnemonicParsing="false" text="Votar!" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+         </children>
+      </AnchorPane>
+   </content>
+</TitledPane>

@@ -1,0 +1,31 @@
+Diagrama Sequencia com Subsistemas (Facade com Interface)
+
+Diagrama Classes (com e sem DAO) 
+
+Use Case (API)
+
+Diagrama de Instalacao
+
+
+
+-------- Opcionais --------
+
+Diagrama de Actividade (Algoritmos complicados)
+
+Diagrama de Estado (Estado dos objectos)
+
+Diagrama de Componentes (API's entre Camadas)
+
+
+
+
+
+
+
+---------- Obrigatórios-------------------
+
+Modelo Dominio
+Use Case
+DSS
+Classes
+Instalacao ?

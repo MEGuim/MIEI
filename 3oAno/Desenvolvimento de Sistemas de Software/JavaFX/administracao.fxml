@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane alignment="CENTER" animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" text="Administração" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <content>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab closable="false" text="Eleições">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="12.5" layoutY="15.0" prefHeight="450.0" prefWidth="775.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="12.5" AnchorPane.rightAnchor="10.5" AnchorPane.topAnchor="15.0">
+                          <columns>
+                            <TableColumn editable="false" prefWidth="68.5" text="Nr." />
+                            <TableColumn prefWidth="91.270751953125" text="Tipo" />
+                              <TableColumn prefWidth="139.08349609375" text="Data" />
+                              <TableColumn prefWidth="500.0" text="Resultado" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button layoutX="51.0" layoutY="479.0" mnemonicParsing="false" text="Agendar Eleição" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="50.0" />
+                        <Button layoutX="207.0" layoutY="479.0" mnemonicParsing="false" text="Cancelar Eleição" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="200.0" />
+                        <Button layoutX="340.0" layoutY="478.0" mnemonicParsing="false" text="Gerir Eleiçao" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab closable="false" text="Eleitores">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </content>
+</TitledPane>

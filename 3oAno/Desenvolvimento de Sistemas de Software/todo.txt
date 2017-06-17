@@ -1,0 +1,23 @@
+Modelo Dominio
+Use Cases (especificar)
+Diagrama de Sequencia de Sistemas <- dependentes dos Use Cases
+Diagrama de Maquina de Estado
+Mockup Interface 
+Relatorio
+
+
+_______________________________
+
+GIT comandos
+
+para adicionar	
+git add (ficheiros)
+git commit -m "mensagem"
+git push
+
+para buscar
+git pull 						
+
+
+git status
+(para ver o estado) ficheiros alterados, adicionados e tal e coiso

@@ -1,0 +1,1184 @@
+%
+% Layout retirado de http://www.di.uminho.pt/~prh/curplc09.html#notas
+%
+\documentclass{report}
+\usepackage[portuges]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{url}
+\usepackage{alltt}
+\usepackage{fancyvrb}
+\usepackage{listings}
+%LISTING - GENERAL
+\lstset{
+	basicstyle=\small,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+    frame=tB,
+	mathescape=true,
+	escapeinside={(*@}{@*)}
+}
+
+\usepackage{xspace}
+
+\parindent=0pt
+\parskip=2pt
+
+\setlength{\oddsidemargin}{-1cm}
+\setlength{\textwidth}{18cm}
+\setlength{\headsep}{-1cm}
+\setlength{\textheight}{23cm}
+
+\def\darius{\textsf{Darius}\xspace}
+\def\java{\texttt{Java}\xspace}
+\def\pe{\emph{Publicação Eletrónica}\xspace}
+
+\begin{document}
+
+\title{Universidade do Minho\\Escola de Engenharia\\Departamento de Informática\\Processamento de Linguagens - 3º ano MIEI\\ \rule{15cm}{1pt}\\ \textbf{Trabalho Prático 2} \\ Compilador para Linguagem Imperativa Simples \rule{15cm}{1pt}}
+
+\author{Gonçalo Pinheiro\\ (66548) \and Miguel Guimarães\\ 66822 \and Nuno Fernandes\\ 61066}
+
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+Este relatório tem como objectivo demonstrar todo o processo derivado da construção de um compilador para uma linguagem de programação imperativa simples (lpis). O compilador irá, através da análise sintática e semântica de um ficheiro escrito na lpis criada, gerar código fonte para a maquina virtual disponibilizada pelos docentes.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+\chapter{Introdução} \label{intro}
+Este documento aborda o processo de construção de um compilador de uma linguagem de programação imperativa simples que é, também, detalhada neste relatório.
+
+\section{Contextualização do Problema} \label{ctp}
+Por forma a consolidar os conhecimentos adquiridos na Unidade Curricular de Processamentos de Linguagens foi proposto a criação de um compilador de uma linguagem de programação imperativa juntamente com a sua definição. \\ Em primeiro lugar, é necessário determinar os passos a efetuar e quais as ferramentas que serão utilizadas neste processo. Após este passo, trata-se de definir a linguagem pretendida. \\ Em seguida, é necessário criar ferramentas que irão ler os ficheiros de código fonte e validar todo o código que é introduzido na linguagem anteriormente definida para a traduzir (ou não, caso seja inválida) para pseudo-código Assembly que é interpretado pela Máquina Virtual disponibilizada pelos docentes. Este tratamento é inicializado pela ferramenta flex que tem como objectivo fazer a análise léxica do código e devolver os símbolos que encontra. Termina, então, quando se faz a análise sintática e semântica, utilizando a ferramenta YACC, que verifica se o código fonte respeita a linguagem e se segue as regras semânticas definidas. \\ Com esta estrutura, espera-se que o resultado final de cada código fonte introduzido seja o pseudo-código com as funcionalidades esperáveis.
+
+\section{Objetivos}
+A elaboração deste projeto tem objetivos que foram claramente enunciados que são: 
+\begin{itemize}
+	\item aumentar a experiência em engenharia de linguagens e em programação generativa (gramatical);
+	\item desenvolver processadores de linguagens segundo o método da tradução dirigida pela sintaxe, suportado numa gramática tradutora;
+	\item desenvolver um \textbf{compilador} gerando código para uma \textbf{máquina de stack virtual};
+	\item utilizar geradores de compiladores baseados em gramáticas tradutoras, concretamente o YACC;
+	\item aumentar a experiência de uso do ambiente Linux, da linguagem imperativa C (para codificação das estruturas
+	de dados e respectivos algoritmos de manipulação), e de algumas ferramentas de apoio à programação;
+	\item rever e aumentar a capacidade de escrever gramáticas independentes de contexto que satisfaçam a condição LR()
+	usando BNF-puro.
+\end{itemize}
+Após a definição e conhecimento dos objetivos que são propostos, é necessário passar à produção da nossa proposta de solução.
+
+
+\chapter{LPIS}
+
+\section{Requisitos}
+Tal como nos objetivos, os requisitos foram facultados no enunciado e são os seguintes:
+\begin{itemize}
+	\item declarar e manusear variáveis atómicas do tipo inteiro, com os quais se podem realizar as habituais operações aritméticas, relacionais e lógicas;
+	\item declarar e manusear variáveis estruturadas do tipo array (a 1 ou 2 dimensões) de inteiros, aos quais é apenas permitida a operação de indexação (índice inteiro).
+	\item efetuar instruções algorítmicas básicas como a atribuição de expressões a variáveis.
+	\item ler do standard input e escrever no standard output.
+	\item efectuar instruções para controlo do fluxo de execução - condicional e cíclica - que possam ser aninhadas.
+	\item definir e invocar subprogramas sem parâmetros mas que possam retornar um resultado atómico (opcional).
+\end{itemize}
+
+\section{Definição da Linguagem}
+\subsection{Definição Textual da Linguagem}
+A linguagem terá de seguir, com a ordenadamente, a estrutura seguinte:
+
+\begin{itemize}
+	\item É necessário iniciar com a palavra BEGINCMM e terminar com ENDCMM;
+	\item Caso sejam necessárias variáveis, introduz-se a sua definição dentro de um bloco que começa por VARBEGIN e termina por VAREND
+	\item O bloco de instruções é inicializado por FUNBEGIN e terminado com FUNEND
+	\item As instruções e as declarações são terminadas por ;
+\end{itemize} 
+
+Após a determinação da estrutura geral de um ficheiro de código fonte da linguagem, é necessário definir os componentes interiores como as instruções e expressões que são permitidas. \\ Como tal, decidiu-se que seriam permitidas as seguintes:
+\begin{itemize}
+	\item Atribuição de uma expressão a uma variável;
+	\item Operação de ciclo While;
+	\item Operação de ciclo For;
+	\item Operação condicional If;
+	\item Leitura do teclado;
+	\item Escrita no ecrã.
+\end{itemize}
+Para cada uma foi definida uma estrutura própria que cada código fonte criado deve seguir por forma a gerar o pseudo-código Assembly correspondente corretamente. \\De seguida é apresentada a estrutura para todos os tipos que se decidiram implementar:
+\begin{itemize}
+	\item \textbf{Atribuição:} Uma instrução de atribuição deve ser iniciada pela variável à qual se quer fazer a atribuição, seguida pelo carater '=' e terminada pela expressão que fornece o valor;
+	\item \textbf{While:} O ciclo While é definido similarmente à sua declaração na linguagem de programação \textit{C}, ou seja, inicia-se a sua declaração com a palavra WHILE, seguida pelo seu bloco de condições e finalmente as instruções. O bloco de condições deve ser limitado pelos caráteres '(' e ')' para iniciar e terminar, respectivamente. O bloco de instruções deve ser limitado por '{' e '}';
+	\item \textbf{For:} O ciclo For também teve como inspiração o seu homônimo de \textit{C}. Ou seja, o ciclo é iniciado pela palavra FOR seguida por uma atribuição, uma instrução e a atribuição final. Cada um dos elementos anteriores, é delimitado pelos caráteres '(' ')'. Após estas definições é inserido o bloco de instruções, iniciado por '{' e terminado por '}';
+	\item \textbf{IF:} Esta instrução é iniciada pela palavra IF, o carater '(', uma condição, o carater ')' e com '{', um conjunto de instruções e '}'. Pode ser completada com um else, que significa a alternativa, iniciada com ELSE e mais uma vez delimitadas as instruções pelos carateres '{' e '}';
+	\item \textbf{Leitura} A instrução de leitura é iniciada pela palavra READ seguida pela variável para onde se quer fazer a leitura delimitada por '(' e ')';
+	\item \textbf{Escrita:} A instrução de escrita inicia-se pela palavra WRITE seguida de uma expressão delimitada por '(' e ')'. No caso de se querer a escrita de uma linha de texto, substitui-se no local da expressão pelo texto pretendido delimitado pelo carater '"'.
+\end{itemize}
+Posto isto, falta apenas descrever o que são as condições e as expressões desta linguagem. \\As condições são relações ente expressões utilizando operadores lógicos ou relacionais.\\As expressões tratam-se das simplesmente de operações aritméticas na matemática.\\De referir que em ambos os casos, nas condições e nas expressões, existe tratamento de prioridades próprios deste tipo de operações.
+
+
+
+
+
+
+
+
+\subsection{Gramática Independente de Contexto}
+
+\textbf{Terminais = \{}
+\begin{verbatim}
+    '{', '}', NUM, ';', '=', '+', '-', '*', '/', '(', ')', '[', ']',
+    variavel, '<', '>', '>=', '<=', '==', '!=', "OR", "AND"
+\end{verbatim}{} 
+
+
+\textbf{\}} \\\\
+\textbf{Não Terminais = \{} 
+\begin{verbatim}
+Codigo, Funcao, BlocoDeclaracoes, Declaracoes, Declaracao, Execucoes, Execucao,
+Atribuicao, Var, Operacao, Termo, Fator, Ciclo, If, Else, BlocoCond, ExpLogica1, 
+ExpLogica2, ExpLogica3, OperacaoLogica, StdInOut
+\end{verbatim}
+\textbf{\}}\\\\
+\textbf{Axioma = }Codigo \\\\
+\newpage
+\textbf{Produções = \{}
+\begin{verbatim}
+
+Codigo 	: BEGINCMM  Declaracoes Funcao ENDCMM
+	   	;
+
+Funcao 	: FUNBEGIN  BlocoDeclaracoes Execucoes FUNEND
+	   	|
+	   	;
+
+BlocoDeclaracoes 	: VARBEGIN Declaracoes VAREND
+					;
+
+Declaracoes : Declaracoes Declaracao
+			| Declaracao
+			;
+
+Declaracao 	: variavel ';'							
+			| variavel '[' NUM ']' ';'				
+			| variavel '[' NUM ']' '[' NUM ']' ';'	
+			;
+
+
+Execucoes 	: Execucoes Execucao
+			| Execucao
+			;
+
+Execucao  	: Atribuicao ';'
+		  	| Ciclo
+		  	| If
+		  	| StdInOut ';'
+		  	| ChamaFuncao ';'
+		  	|
+		  	;
+
+Atribuicao  : Var '=' Operacao
+			;
+
+Var 	: variavel 											
+		| variavel 	'[' Operacao ']'						
+		| variavel  '[' Operacao ']' '[' Operacao ']'		
+		;
+
+
+Operacao  	: Termo
+		  	| Operacao '+' Termo				
+		  	| Operacao '-' Termo				
+		  	;
+
+Termo 	: Fator
+	  	| Termo '*' Fator						
+	 	| Termo '/' Fator						
+	 	;
+
+Fator 	: Var 									
+	  	| NUM									
+	  	| '(' Operacao ')'
+	  	| READ '(' ')'							
+	  	;
+
+Ciclo 	: WHILE  '(' BlocoCond ')' '{' Execucoes '}'
+	  	| FOR '(' Atribuicao ')' '(' BlocoCond ')'  '(' Operacao ')' '{' Execucoes '}'
+	  	;
+
+
+If 	: IF '(' BlocoCond ')' '{' Execucoes '}' Else
+   	;
+
+Else :  ELSE '{' Execucoes '}'
+	 |			  			  
+	 ;
+
+
+
+BlocoCond	: BlocoCond OR ExpLogica1			
+			| ExpLogica1
+			;
+
+ExpLogica1	: ExpLogica1 AND ExpLogica2			
+			| ExpLogica2
+			;
+
+ExpLogica2	: NOT '(' BlocoCond ')'		
+			| ExpLogica3
+			;
+
+ExpLogica3 	: OperacaoLogica
+			| '(' BlocoCond ')'
+			;
+
+OperacaoLogica: Operacao '<' Operacao		
+			  | Operacao '=' '<' Operacao	
+			  | Operacao '<' '=' Operacao	
+			  | Operacao '>' Operacao		
+			  | Operacao '>' '=' Operacao	
+			  | Operacao '=' '>' Operacao	
+			  | Operacao '=' '=' Operacao	
+			  | Operacao '!' '=' Operacao	
+			  ;
+
+StdInOut 	: WRITE '(' Operacao ')'				
+		 	| WRITE '(' string ')'					
+		 	;
+\end{verbatim}
+\textbf{\}}\\\\
+
+
+\subsection{Programas de Exemplo}
+De forma a melhor entender a nossa linguagem escrevemos uns programas exemplo, para mostrar as funcionalidades implementadas.
+\textbf{Exemplo 1 }: Imprimir números de 1 até 10
+\begin{verbatim}
+BEGINCMM
+	VARBEGIN
+		i;
+		numeros[10];
+	VAREND
+	
+	FUNBEGIN
+		FOR(i = 1) (i <= 10) (i++) {
+			numeros[i-1]=i;
+			WRITE(i)
+		}
+	FUNEND
+
+ENDCMM
+
+\end{verbatim}
+
+\textbf{Exemplo 2 }: Imprimir texto, ler do standard input e demonstração de uso de condições lógicas:
+\begin{verbatim}
+BEGINCMM
+	VARBEGIN
+		i;
+		aux;
+		numeros[10];
+	VAREND
+	
+	FUNBEGIN
+		FOR(i = 0) (i < 10) (i++) {
+			numeros[i]=READ();
+		}
+		i = 0;
+		WHILE (i < 10 AND aux == 0) {
+			IF (numeros[i] == 5) {
+				aux = 1;
+			} ELSE {
+				i = i + 1;
+			}
+		}
+		IF (aux != 5) {
+			WRITE("Numero 5 nao encontrado");
+		} ELSE {
+			WRITE("5 encontrado");
+		}
+	FUNEND
+
+ENDCMM
+\end{verbatim}
+
+\textbf{Exemplo 3 }: Inicializar e preencher array bidimensional:
+\begin{verbatim}
+BEGINCMM
+	VARBEGIN
+		i;
+		j;
+		numeros[10][10];
+	VAREND
+	
+	FUNBEGIN
+		FOR(i = 0) (i < 10) (i++) {
+			FOR (j = 0) (j < 10) (j++) {
+				numeros[i][j]= j + i * 10;
+			}
+		}
+	FUNEND
+
+ENDCMM
+\end{verbatim}
+
+
+
+
+\subsection{Formalização da Definição da Linguagem}
+Nesta parte do documento serão identificadas as expressões regulares necessárias para a análise léxica do texto fonte. Para isto são analisados os símbolos terminais da gramática anteriormente definida e, concetualizadas as expressões regulares que permitem identificar esses símbolos. 
+Assim sendo, de seguida, apresentam-se os símbolos terminais da gramática anteriormente identificados com a respetiva expressão regular para os intercetar.
+\begin{verbatim}
+'%' : %
+'{' : {
+'}' : }
+NUM : [0-9]+
+';' : ;
+'=' : =
+'+' : +
+'-' : -
+'*' : *
+'/' : /
+'(' : (
+')' : )
+'[' : [
+']' : ]
+variavel : [a-zA-Z][a-zA-Z0-9]*
+'<' : < 
+'>' : >
+'>=' : ">="
+'<=' : "<="
+'==' : "=="
+'!=' : "!="
+'AND' : "AND"
+'||' : "||"
+\end{verbatim}
+
+As palavras reservadas da linguagem são identificadas pela própria palavra, o que significa que estas palavras terão sempre um significado próprio e não poderão ser atribuídas a variáveis.
+Assim sendo foi especificado o seguinte analisador léxico:
+
+\begin{verbatim}
+#include "y.tab.h"
+%}
+letra       [a-zA-Z]
+digito      [0-9]
+indesejado  \t|\n
+
+%option yylineno
+%%
+
+[\{\}\(\)\[\]\=\<\>\,\;\"\+\-\*\/\%\&\!\|]      {return yytext[0];}
+
+
+"BEGINCMM"				                        {return BEGINCMM;}
+"ENDCMM"				                        {return ENDCMM;}
+"VARBEGIN"				                        {return VARBEGIN;}
+"VAREND"				                        {return VAREND;}
+"FUNBEGIN"				                        {return FUNBEGIN;}
+"FUNEND"				                        {return FUNEND;}
+"FUNC"					                        {return FUNC;}
+
+"IF"					                        {return IF;}
+"ELSE"					                        {return ELSE;}
+"WHILE"					                        {return WHILE;}
+"FOR"					                        {return FOR;}
+"AND"											{return AND;}
+"OR"											{return OR;}
+
+"READ"					                        {return READ;}
+"WRITE"					                        {return WRITE;}
+
+
+{letra}({letra}|{digito})*                      {yylval.pal = strdup(yytext); return variavel;}
+-?{digito}+ 				                    {yylval.val = atoi(yytext); return NUM;}
+\"[^\"]+\"										{yylval.pal = strdup(yytext); return string;}
+
+{indesejado}                                    {;}
+
+%%
+
+int yywrap() {
+   return(1);
+}
+\end{verbatim}
+
+\section{Conclusão}
+O objectivo deste trabalho não foi totalmente cumprido uma vez que não foi possivel implementar a funcionalidade que permite chamar funções  principalmente devido a uma pobre gestão do tempo.
+Com este trabalho foi possivel consolidar a matéria dada durante o semestre de processamento de linguagens uma vez que foi necessário utilizar conhecimento adquirido em todas as aulas sem excepção.
+Apesar das várias dificuldades sentidas, nomeadamente a construção da gramática tradutora e o armazenamento de vectores quer unidimensionais quer bidimensionais, consegui-se ainda assim tirar uma avaliação bastante positiva do trabalho.
+
+
+
+
+\appendix
+\section{Analisador Léxico .l}
+
+\begin{lstlisting}
+%{
+
+
+#include "y.tab.h"
+%}
+letra       [a-zA-Z]
+digito      [0-9]
+indesejado  \t|\n
+
+%option yylineno
+%%
+
+[\{\}\(\)\[\]\=\<\>\,\;\"\+\-\*\/\%\&\!\|]      {return yytext[0];}
+
+"BEGINCMM"				                        {return BEGINCMM;}
+"ENDCMM"				                        {return ENDCMM;}
+"VARBEGIN"				                        {return VARBEGIN;}
+"VAREND"				                        {return VAREND;}
+"FUNBEGIN"				                        {return FUNBEGIN;}
+"FUNEND"				                        {return FUNEND;}
+"FUNC"					                        {return FUNC;}
+
+"IF"					                        {return IF;}
+"ELSE"					                        {return ELSE;}
+"WHILE"					                        {return WHILE;}
+"FOR"					                        {return FOR;}
+"AND"											{return AND;}
+"OR"											{return OR;}
+
+"READ"					                        {return READ;}
+"WRITE"					                        {return WRITE;}
+
+
+{letra}({letra}|{digito})*                      {yylval.pal = strdup(yytext); return variavel;}
+-?{digito}+ 				                    {yylval.val = atoi(yytext); return NUM;}
+\"[^\"]+\"										{yylval.pal = strdup(yytext); return string;}
+
+{indesejado}                                    {;}
+
+%%
+
+int yywrap() {
+   return(1);
+}
+\end{lstlisting}
+
+\newpage
+\section{Analisador Sintático, Semântico e Gerador de Código .y}
+\scriptsize\begin{verbatim}
+%{
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include "varHash.h"
+#include "stack.h"
+
+extern int yylex();
+extern int yylineno;
+int yyerror(char* s);
+
+#define MAX_SIZE 1000
+
+/*Tipos de dados*/
+#define INT 3000
+#define INT_ARRAY 3001
+
+void declaracao(char* name,int size1,int size2);
+int atribuicao(char* nome);
+int atribuicaoArray(char* nome, int size1);
+int atribuicaoAA(char* nome, int size1, int size2);
+void addStartWhileLabel();
+void addLoopWhileLabel();
+void addEndWhileLabel();
+void addStartForLabel();
+void addLoopForLabel();
+void addEndForLabel();
+void addStartIfLabel();
+void addMidIfLabel();
+void addJumpEndIfLabel();
+void addElseLabel();
+void addEndIfElseLabel();
+
+varHash hash;
+
+FILE *f;
+
+PtStk stackWhileLoop;
+PtStk stackForLoop;
+PtStk stackIfcondition;
+
+int whilelabel = 1;
+int forlabel = 1;
+int ifcondition = 1;
+int currPointer;
+char *currFunc;
+
+%}
+
+%token variavel string NUM
+%token BEGINCMM ENDCMM VARBEGIN VAREND FUNBEGIN FUNEND FUNC 
+%token IF ELSE WHILE FOR
+%token AND OR NOT 
+%token READ WRITE
+
+
+%type <val> NUM
+%type <val> Var
+%type <val> Operacao
+%type <val> Termo
+%type <val> Fator
+
+%type <pal> variavel
+%type <pal> string
+
+
+
+
+
+%union{
+	int val;
+	char* pal;
+}
+
+%start Codigo
+
+%%
+
+
+Codigo 	: BEGINCMM BlocoDeclaracoes { fprintf(f, "start\n"); } Funcao ENDCMM
+	   	;
+
+Funcao 	: FUNBEGIN {/*fprintf(f,"pusha main\ncall\n");*/} BlocoDeclaracoes Execucoes FUNEND
+	   	;
+
+BlocoDeclaracoes 	: 
+					| VARBEGIN Declaracoes VAREND
+					;
+
+Declaracoes : Declaracoes Declaracao
+			| Declaracao
+			;
+
+Declaracao 	: variavel ';'									{ declaracao($1, 0, 0); }
+			| variavel '[' NUM ']' ';'						{ if($3 < 1) printf("Erro na definição de Array"); declaracao($1, $3, 0); }
+			| variavel '[' NUM ']' '[' NUM ']' ';'			{ if($3 < 1 || $6 < 1) printf("Erro na definição do Array");declaracao($1, $3, $6); }
+			|
+			;
+
+
+Execucoes 	: Execucoes Execucao
+			| Execucao
+			;
+
+Execucao  	: Atribuicao ';'
+		  	| Ciclo
+		  	| If
+		  	| StdInOut ';'
+		  	|
+		  	;
+
+Atribuicao  : Var '=' Operacao 								{ fprintf(f,"storeg %d\n", $1);}					
+			;
+
+Var 	: variavel 											{ $$ = atribuicao($1); }
+		| variavel 	'[' Operacao ']'						{ $$ = atribuicaoArray($1,$3); }
+		| variavel  '[' Operacao ']' '[' Operacao ']'		{ $$ = atribuicaoAA($1,$3,$6); }
+		;
+
+
+Operacao  	: Termo
+		  	| Operacao '+' Termo				{fprintf(f,"add\n");}
+		  	| Operacao '-' Termo				{fprintf(f,"sub\n");}
+		  	;
+
+Termo 	: Fator
+	  	| Termo '*' Fator						{fprintf(f,"mul\n");}
+	 	| Termo '/' Fator						{fprintf(f,"div\n");}
+	 	;
+
+Fator 	: Var 									{ fprintf(f,"loadn\n");}
+	  	| NUM									{ fprintf(f,"pushi %d\n", $1);}
+	  	| '(' Operacao ')'						{}
+	  	| READ '(' ')'							{ fprintf(f,"read\natoi\nstoren\n");}
+	  	;
+
+Ciclo 	: WHILE {addStartWhileLabel();} '(' BlocoCond ')'{addLoopWhileLabel();} '{' Execucoes '}' {addEndWhileLabel();}
+	  	| FOR {addStartForLabel();}'(' Atribuicao ')' '(' BlocoCond ')' {addLoopForLabel();} '(' Atribuicao ')' '{' Execucoes '}' {addEndForLabel();}
+	  	;
+
+If 	: IF {addStartIfLabel();} '(' BlocoCond ')' {addMidIfLabel();} '{' Execucoes '}' {addJumpEndIfLabel();addElseLabel();}  Else
+   	;
+
+Else :  ELSE '{' Execucoes '}' {addEndIfElseLabel();}
+	 |			  			   {addEndIfElseLabel();}
+	 ;
+
+
+
+BlocoCond	: BlocoCond OR ExpLogica1			{fprintf(f, "add\npushi 0\nsup\n");}
+			| ExpLogica1
+			;
+
+ExpLogica1	: ExpLogica1 AND ExpLogica2			{fprintf(f, "add\npushi 2\nequal\n");}
+			| ExpLogica2
+			;
+
+ExpLogica2	: NOT '(' BlocoCond ')'			{fprintf(f, "not\n");}
+			| ExpLogica3
+			;
+
+ExpLogica3 	: OperacaoLogica
+			| '(' BlocoCond ')'
+			;
+
+OperacaoLogica: Operacao '<' Operacao		{fprintf(f, "inf\n");}
+			  | Operacao '=' '<' Operacao	{fprintf(f, "infeq\n");}
+			  | Operacao '<' '=' Operacao	{fprintf(f, "infeq\n");}
+			  | Operacao '>' Operacao		{fprintf(f, "sup\n");}
+			  | Operacao '>' '=' Operacao	{fprintf(f, "supeq\n");}
+			  | Operacao '=' '>' Operacao	{fprintf(f, "supeq\n");}
+			  | Operacao '=' '=' Operacao	{fprintf(f, "equal\n");}
+			  | Operacao '!' '=' Operacao	{fprintf(f, "equal\nnot\n");}
+			  ;
+
+
+StdInOut 	: WRITE '(' Operacao ')'				{ fprintf(f,"writei\n");}
+		 	| WRITE '(' string ')'					{ fprintf(f,"pushs %s\nwrites\n", $3);}
+		 	;
+
+%%
+
+void declaracao(char *nome,int size1,int size2){
+	int tipo,i;
+	char *temp;
+	if(size1==0 && size2==0) tipo=INT;	else tipo=INT_ARRAY;
+
+	if(existeVar(&hash, nome, currFunc) != -1 || existeVar(&hash, nome, "main") != -1){
+		fprintf(stderr,"ERRO linha %d: Variavel %s já definida\n",yylineno,nome);
+		exit(0);
+	}
+   else{
+       if(tipo==INT){
+        	fprintf(f,"pushi 0\n");
+			adVar(&hash,nome,tipo,0,currPointer,"main");
+       		currPointer++;
+	    }else{
+			if(size2==0){
+				fprintf(f,"pushn %d\n", size1);
+				adVar(&hash,nome,tipo,size1,currPointer,"main");
+				currPointer+=size1;
+			}else{
+				adVar(&hash,nome,INT,0,currPointer,"main");
+				for(i=0;i<size2;i++){
+					fprintf(f,"pushn %d\n", size1);
+					asprintf(&temp,"%s[%d]",nome,i);
+					adVar(&hash,temp,tipo,size1,currPointer,"main");
+					currPointer+=size1;
+				}
+			}
+		}
+    }
+}
+
+
+
+int atribuicao(char* nome){
+	int end;
+
+	if (existeVar(&hash,nome,"main") == -1) {
+		fprintf(stderr,"ERRO linha %d: Variavel %s não definida\n",yylineno,nome);
+		exit(0);
+	}
+
+	varInHash v = (varInHash)malloc(sizeof(varInHash));
+	v = tiraVar(&hash,nome,"main");
+	end = v->endereco;
+
+	if(strcmp(currFunc, "main"))
+		fprintf(f,"pushfp\npushi %d\nadd\n", end);
+	else 
+		fprintf(f,"pushgp\npushi %d\nadd\n", end);
+
+	return end;
+}
+
+int atribuicaoArray(char *nome, int size1){
+	int end;
+
+	if (existeVar(&hash,nome,"main") == -1) {
+		fprintf(stderr,"ERRO linha %d: Variavel %s não definida\n",yylineno,nome);
+		exit(0);
+	}
+
+	varInHash v = (varInHash)malloc(sizeof(varInHash));
+	v = tiraVar(&hash,nome,"main");
+	end = v->endereco+size1;
+
+	if(strcmp(currFunc,"main"))
+		fprintf(f,"pushfp\npushi %d\nadd\n", end);
+	else 
+		fprintf(f,"pushgp\npushi %d\nadd\n", end);
+
+	return end;
+}
+
+int atribuicaoAA(char *nome, int size1, int size2){
+	char* temp;
+	int end;
+	asprintf(&temp,"%s[%d]",nome,size1);
+
+	if (existeVar(&hash,temp,"main") == -1) {
+		fprintf(stderr,"ERRO linha %d: Variavel %s não definida\n",yylineno,nome);
+		exit(0);
+	}
+
+	varInHash v = (varInHash)malloc(sizeof(varInHash));
+	v = tiraVar(&hash,temp,"main");
+	end = v->endereco+size2;
+	if(strcmp(currFunc,"main"))
+		fprintf(f,"pushfp\npushi %d\nadd\n", end);
+	else
+		fprintf(f,"pushgp\npushi %d\nadd\n", end);
+	
+	return end;
+}
+
+void addStartWhileLabel(){
+	//fprintf(f, "\\\\ While loop \n");
+	fprintf(f, "while_loop%d: NOP \n",whilelabel);
+	stackPush(stackWhileLoop,whilelabel);
+	whilelabel++;
+}
+
+void addLoopWhileLabel(){
+	fprintf(f, "JZ end_while_loop%d \n", stackTop(stackWhileLoop));
+}
+
+void addEndWhileLabel(){
+	fprintf(f, "JUMP while_loop%d \n", stackTop(stackWhileLoop));
+	fprintf(f, "end_while_loop%d: NOP \n", stackTop(stackWhileLoop));
+	stackPop(stackWhileLoop);
+}
+
+void addStartForLabel(){
+	//fprintf(f, "\n\\\\ For Loop \n");
+	fprintf(f, "for_loop%d: NOP \n", forlabel);
+	stackPush(stackForLoop,forlabel);
+	forlabel++;
+}
+
+void addLoopForLabel(){
+	fprintf(f, "JZ end_for_loop%d \n", stackTop(stackForLoop));
+}
+
+void addEndForLabel(){
+	fprintf(f, "JUMP for_loop%d \n",stackTop(stackForLoop));
+	fprintf(f, "end_for_loop:%d",stackTop(stackForLoop));
+	stackPop(stackForLoop);
+}
+
+void addStartIfLabel(){
+	//fprintf(f, "\\\\ If Condition \n");
+	fprintf(f, "ifcondition%d: NOP \n", ifcondition);
+	stackPush(stackIfcondition,ifcondition);
+	ifcondition++;
+}
+
+void addMidIfLabel(){
+	fprintf(f, "JZ elsestatement%d\n",stackTop(stackIfcondition));
+}
+
+void addJumpEndIfLabel(){
+	fprintf(f, "JUMP endif%d\n", stackTop(stackIfcondition));
+}
+
+void addElseLabel(){
+	fprintf(f, "elsestatement%d: NOP \n",stackTop(stackIfcondition));
+}
+
+void addEndIfElseLabel(){
+	fprintf(f, "endif%d: NOP \n", stackTop(stackIfcondition));
+	stackPop(stackIfcondition);
+}
+
+int yyerror(char *s)
+{
+   fprintf(stderr, "ERRO: %s, linha: %d\n", s, yylineno);
+   return 0;
+}
+int main(int argc, char *argv[]) {
+
+	if(argc != 3){
+		fprintf(stderr,"ERRO linha %d: Erro de nº de argumentos\n",yylineno);
+			exit(0);
+	}
+	stdin = fopen(argv[1], "r");
+
+	f = fopen(strdup(argv[2]), "w");
+
+	currFunc = strdup("main");
+	currPointer = 0;
+
+
+	hash = initHash();
+
+	stackWhileLoop = stackCreate();
+	stackForLoop = stackCreate();
+	stackIfcondition = stackCreate();
+
+	yyparse();
+	fprintf(f, "stop\n");
+	fclose(f);
+
+	stackDestroy(stackWhileLoop);
+	stackDestroy(stackForLoop);
+	stackDestroy(stackIfcondition);
+
+	return 0;
+}
+
+\end{verbatim}
+\newpage
+
+
+
+\section{Tabela de Variaves}
+\subsection{.h}
+\begin{lstlisting}
+#ifndef VARHASH
+#define VARHASH
+
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
+
+
+#define MIN_SIZE 10
+/*Tipos de dados*/
+#define INT 3000
+#define INT_ARRAY 3001
+
+
+typedef struct tabelaHash *varHash;
+
+typedef struct variable 
+{
+	char *nome;
+	int tipo;
+	int size;
+	int endereco;
+	char *funcao;
+}*varInHash;
+
+
+
+varHash initHash();
+
+void removeVarHash(varHash v);
+
+int existeVar(varHash *h, char* nome, char* funcao);
+
+int adVar(varHash *h, char* nome, int tipo, int size, int endereco, char* funcao);
+
+varInHash tiraVar(varHash *h, char* nome, char *funcao);
+
+void printHash(varHash *h);
+
+#endif
+\end{lstlisting}
+
+\subsection{.c}
+\begin{lstlisting}
+#include "varHash.h"
+
+typedef struct tabelaHash
+{
+	int size;
+	int n_elems;
+	varInHash *variaveis;
+}*varHash;
+
+int getPos(int size, char* str) {
+
+    unsigned int hash = 5381;
+    int c;
+
+    while ( (c = *str++) )
+        hash = ((hash << 5) + hash) ^ c;
+
+    return hash % size;
+}
+
+varHash initHash() {
+
+	varHash h 	 = (varHash)malloc(sizeof(struct tabelaHash));
+	h->size 	 = MIN_SIZE;
+	h->n_elems 	 = 0;
+	h->variaveis = (varInHash *)malloc(sizeof(struct variable) * MIN_SIZE);
+
+	for (int i = 0; i < MIN_SIZE; i++)
+	{
+		h->variaveis[i] = NULL;
+	}
+
+	return h;
+}
+
+void resize_varHash(varHash *h){
+
+	int new_size  = (*h)->size * 2;
+	int pos;
+	varHash novo  = initHash();
+	novo->n_elems = (*h)->n_elems;
+	novo->size    = new_size;
+
+	for (int i = 0; i < (*h)->size; i++)
+	{
+		varInHash v = (*h)->variaveis[i];
+		if (v)
+		{
+			pos = existeVar(&novo, v->nome, v->funcao);
+			novo->variaveis[pos] = v;
+		}
+	}
+
+	free(*h);
+	*h = novo;
+}
+
+void removeVarHash(varHash h) {
+
+	if(!h)
+		return;
+
+
+	for (int i = 0, j = 0; i < h->n_elems; i++, j++)
+	{
+		while(h->variaveis[j] == NULL)
+			j++;
+		free(h->variaveis[j]);
+	}
+	free(h);
+}
+
+varInHash novaVar(char *nome, int tipo, int size, int endereco, char *funcao){
+
+	varInHash var 	= (varInHash)malloc(sizeof(struct variable));
+
+	var->nome 		= strdup(nome);
+	var->tipo 		= tipo;
+	var->size 		= size;
+	var->endereco 	= endereco;
+	var->funcao 	= strdup(funcao);
+
+	return var;
+}
+
+varInHash copVar(varInHash v){
+
+	varInHash var 	= (varInHash)malloc(sizeof(struct variable));
+
+	var->nome 		= strdup(v->nome);
+	var->tipo 		= v->tipo;
+	var->size 		= v->size;
+	var->endereco 	= v->endereco;
+	var->funcao 	= strdup(v->funcao);
+
+	return var;
+}
+
+int poeVar(varHash *h, varInHash v) {
+	int ret = -1;
+	int e = existeVar(h, v->nome, v->funcao);
+
+	if ((*h)->n_elems >= (*h)->size / 2)
+		resize_varHash(h);
+
+	if (e != -1){
+		(*h)->variaveis[e] = v;
+		ret = 0;
+	} else {
+		int pos = getPos((*h)->size, v->nome);
+
+		while ((*h)->variaveis[pos % (*h)->size] != NULL)
+			pos++;
+
+		(*h)->variaveis[pos] = v;
+		(*h)->n_elems++;
+	}
+	return ret;
+}
+
+int adVar(varHash *h, char* nome, int tipo, int size, int endereco, char* funcao){
+	int ret;
+	varInHash v = novaVar(nome, tipo, size, endereco, funcao);
+	ret = poeVar(h,v);
+
+	return ret;
+}
+
+int existeVar(varHash *h, char* nome, char* funcao) {
+	int key = getPos((*h)->size, nome);
+	int res = -1;
+	int i = 0;
+
+	if ((*h)->variaveis[key] != NULL) {
+		while( res == -1 && i < (*h)->size && (*h)->variaveis[key % (*h)->size] != NULL ){
+			if(strcmp((*h)->variaveis[key]->nome,nome) == 0 && strcmp((*h)->variaveis[key]->funcao,funcao) == 0 )
+				res = key;
+			else{
+				key++;
+				i++;
+			}
+		}
+	}
+
+	return res;
+}
+
+varInHash tiraVar(varHash *h, char* nome, char *funcao){
+	int pos = existeVar(h, nome, funcao);
+
+	if (pos == -1)
+		return NULL;
+	else
+		return (*h)->variaveis[pos];
+}
+
+void printHash(varHash *h) {
+
+	int i = 0;
+	int j = 0;
+
+	printf("Hash:\n");
+	printf("Tamanho Hash: %d\nNo Elementos: %d\n", (*h)->size, (*h)->n_elems);
+
+	while (i < (*h)->size) {
+		if ((*h)->variaveis[i] == NULL){
+			printf("Elemento vazio\n");
+		}
+		else {
+			printf("Variavel %s\n", (*h)->variaveis[i]->nome);
+			printf("tipo: %d\n", (*h)->variaveis[i]->tipo);
+			printf("Size: %d\n", (*h)->variaveis[i]->size);
+			printf("Endereco: %d\n", (*h)->variaveis[i]->endereco);
+			printf("Funcao: %s\n", (*h)->variaveis[i]->funcao);
+		}
+		i++;
+	}
+}
+
+
+int getendereco(varHash *h, char* nome, char *funcao){
+			varInHash v = (varInHash)malloc(sizeof(varInHash));
+			v=tiraVar(h,nome,funcao);
+			return v->endereco;
+}
+
+int getVarSize(varHash *h, char* nome, char* funcao) {
+	varInHash v = (varInHash)malloc(sizeof(varInHash));
+	v=tiraVar(h,nome,funcao);
+	return v->size;
+}
+
+
+
+\end{lstlisting}
+\newpage
+\section{Auxiliar para Geração de Labels .h}
+\begin{lstlisting}
+#ifndef __STACK_H__
+#define __STACK_H__
+
+#include <stdlib.h>
+#include <stdio.h>
+
+typedef struct stack_node *PtStkNode;
+typedef struct stack *PtStk;
+
+PtStk stackCreate();
+int stackDestroy(PtStk stack);
+int stackPush(PtStk stack, int i);
+int stackPop(PtStk stack);
+int stackTop(PtStk stack);
+
+#endif
+
+\end{lstlisting}
+
+\subsection{.c}
+\begin{lstlisting}
+#include "stack.h"
+
+struct stack_node{
+    int nr;
+    struct stack_node * prev;
+};
+
+struct stack{
+    struct stack_node * Top;
+};
+
+
+PtStk stackCreate(){
+
+    PtStk stack;
+    if((stack = (PtStk) malloc(sizeof(struct stack)))== NULL){
+        fprintf(stderr, "Erro a alocar espaco na memoria para a stack\n");
+        return NULL;
+    }
+
+    stack->Top = NULL;
+    return stack;
+}
+
+int stackDestroy(PtStk stack){
+    PtStk temp = stack;
+    PtStkNode tempNode;
+
+    if(temp == NULL){ return -1;}
+
+    while(temp->Top != NULL){
+        tempNode = temp->Top;
+        temp->Top = temp->Top->prev;
+        free(tempNode);
+    }
+    free(temp);
+    stack = NULL;
+    return 1;
+}
+
+int stackPush(PtStk stack, int i){
+    PtStkNode tempNode;
+    if(stack == NULL) return -1;
+    if((tempNode = (PtStkNode) malloc(sizeof(struct stack_node)))==NULL){
+        fprintf(stderr, "Erro a alocar memoria\n");
+        return -2;
+    }
+    tempNode->nr = i;
+    tempNode->prev = stack->Top;
+    stack->Top = tempNode;
+
+    return 1;
+}
+
+int stackPop(PtStk stack){
+    PtStkNode tempNode;
+    int res;
+    if(stack == NULL){ return 0;}
+    if(stack->Top == NULL){ return -1;}
+    res = stack->Top->nr;
+    tempNode = stack->Top;
+    stack->Top = stack->Top->prev;
+    free(tempNode);
+    return res;
+}
+
+int stackTop(PtStk stack){
+    if(stack==NULL){return -1;}
+    return stack->Top->nr;    
+}
+\end{lstlisting}
+
+
+\end{document} 

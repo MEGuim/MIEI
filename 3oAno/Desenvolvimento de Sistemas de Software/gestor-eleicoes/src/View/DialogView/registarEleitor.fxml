@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane prefHeight="300.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.DialogController.RegistarController">
+   <children>
+      <TextField fx:id="nome" layoutX="78.0" layoutY="25.0" prefHeight="29.0" prefWidth="600.0" promptText="Nome Cidadão" AnchorPane.leftAnchor="80.0" AnchorPane.topAnchor="27.0" />
+      <DatePicker fx:id="dataNascimento" layoutX="125.0" layoutY="76.0" prefHeight="29.0" prefWidth="115.0" promptText="01/01/1990" AnchorPane.leftAnchor="125.0" AnchorPane.topAnchor="77.0" />
+      <TextField fx:id="cartaoCidadao" layoutX="360.0" layoutY="77.0" prefHeight="29.0" prefWidth="95.0" promptText="######" AnchorPane.leftAnchor="360.0" AnchorPane.topAnchor="77.0" />
+      <TextField fx:id="nacionalidade" layoutX="564.0" layoutY="74.0" prefHeight="29.0" prefWidth="120.0" promptText="Nacionalidade" AnchorPane.leftAnchor="560.0" AnchorPane.topAnchor="77.0" />
+      <ChoiceBox fx:id="distrito" layoutX="76.0" layoutY="165.0" prefWidth="150.0" AnchorPane.leftAnchor="76.0" AnchorPane.topAnchor="127.0" />
+      <ChoiceBox fx:id="concelho" layoutX="328.0" layoutY="179.0" prefWidth="150.0" AnchorPane.leftAnchor="328.0" AnchorPane.topAnchor="127.0" />
+      <Button fx:id="genElectorNumber" layoutX="260.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleGenerateAction" text="Gerar Numero Eleitor" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="177.0" />
+      <Button fx:id="clearButton" layoutX="350.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleClearButton" prefHeight="29.0" prefWidth="80.0" text="Limpar" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="250.0" />
+      <Button fx:id="okButton" layoutX="230.0" layoutY="235.0" mnemonicParsing="false" onAction="#handleSubmitButton" prefHeight="29.0" prefWidth="80.0" text="OK" AnchorPane.leftAnchor="230.0" AnchorPane.topAnchor="250.0" />
+      <Label layoutX="10.0" layoutY="30.0" text="Nome" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="30.0" />
+      <Label layoutX="147.0" layoutY="240.0" text="Nr. Eleitor" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="180.0" />
+      <Label layoutX="6.0" layoutY="170.0" text="Distrito" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />
+      <Label layoutX="259.0" layoutY="184.0" text="Concelho" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="130.0" />
+      <Label layoutX="10.0" layoutY="79.0" text="Data Nascimento" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="80.0" />
+      <Label layoutX="467.0" layoutY="82.0" text="Nacionalidade" AnchorPane.leftAnchor="467.0" AnchorPane.topAnchor="80.0" />
+      <Label layoutX="259.0" layoutY="81.0" text="Cartao Cidadao" AnchorPane.leftAnchor="260.0" AnchorPane.topAnchor="80.0" />
+      <TextField fx:id="numeroEleitor" editable="false" layoutX="89.0" layoutY="165.0" prefHeight="29.0" prefWidth="125.0" promptText="######" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="177.0" />
+   </children>
+</AnchorPane>

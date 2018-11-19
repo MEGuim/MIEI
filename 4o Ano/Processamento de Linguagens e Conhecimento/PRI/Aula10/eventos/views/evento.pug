@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .w3-container
+    h1.w3-blue Agenda de eventos #{evento._id}
+    table.w3-table-all
+      tr
+        th(style='display:none') ID
+        td(style='display:none')=evento._id
+      tr  
+        th Data
+        td= evento.data
+      tr
+        th Horário
+        if evento.horario
+          td= evento.horario
+        else 
+          td ---- 
+      tr
+        th Tipo
+        td= evento.data
+      tr
+        th Designação
+        if evento.designacao
+          td= evento.designacao
+        else 
+          td ---- 
+      tr
+        th Local
+        if evento.local
+          td= evento.local
+        else 
+          td ---- 
+      tr
+        th Informações
+        if evento.informacoes
+          td= evento.designacao
+        else 
+          td ----

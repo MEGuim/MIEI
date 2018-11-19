@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  .w3-container
+    h1.w3-teal Agenda de eventos
+    .w3-card-4
+      header.w3-teal.w3-container
+        h3 Novo Evento
+      .w3-container 
+        form.w3-container(method="POST" action="/eventos/")
+          input.w3-input(type="text" name="data" placeholder="Data: AAA-MM-DD" class="col-lm-2")
+          input.w3-input(type="text" name="tipo" placeholder="Tipo" class="col-lm-2")
+          input.w3-input(type="text" name="designacao" placeholder="Designação" class="col-lm-2")
+          input.w3-input(type="text" name="local" placeholder="Local" class="col-lm-2")
+          input.w3-input(type="text" name="informacoes" placeholder="Informações" class="col-lm-2")
+          input.w3-btn.w3-teal(type="submit" value="Enviar" class="col-lm-2")
+
+    table.w3-table-all
+      tr
+        th(style='display:none') ID
+        th Data
+        th Horário
+        th Tipo
+        th Designação
+        th Local
+        th Informações
+      each e in eventos
+        tr
+          td(style='display:none')=e._id
+          td 
+            a(href='/eventos/' + e._id)= e.data
+
+          if e.horario
+            td= e.horario
+          else 
+            td ---- 
+
+          td e.tipo
+
+          if e.designacao
+            td= e.designacao
+          else 
+            td ----
+
+          if e.local
+            td= e.local
+          else 
+            td ----
+
+          if e.informacoes
+            td= e.informacoes
+          else 
+            td ----

@@ -1,0 +1,23 @@
+Evento: 
+    - data (ANSI)
+    - horário: hinicio, hfim
+    - tipo
+    - designacao
+    - local
+    - informacoes
+
+Rotas API:
+    - GET: /api/eventos => Lista de eventos
+    - GET: /api/eventos/id => Informação de um evento
+    - GET: /api/eventos/tipo/it => Lista eventos do tipo 'it'
+    - GET: /api/eventos/data/dt => Lista eventos com data > dt
+
+    - POST: /api/eventos => insere eventos
+
+Rotas html:
+    - GET: /eventos => Lista de eventos
+    - GET: /eventos/id => Informação de um evento
+    - GET: /eventos/tipo/it => Lista eventos do tipo 'it'
+    - GET: /eventos/data/dt => Lista eventos com data > dt
+
+    - POST: /eventos => insere eventos
